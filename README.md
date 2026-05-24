@@ -1,88 +1,50 @@
-# MobSF Android Analysis Lab
+<p align="center">
+  <img src="images/banner.png" width="100%">
+</p>
 
-> Fully Automated Android Static & Dynamic Analysis Lab Setup using Android Emulator, RootAVD, Magisk, Docker, and MobSF.
+<h1 align="center">MobSF Android Analysis Lab</h1>
 
-Build your own Android malware analysis & mobile application testing environment in minutes.
+<p align="center">
+  Automated Android Static & Dynamic Analysis Environment
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Android-30-green">
+  <img src="https://img.shields.io/badge/MobSF-Dynamic%20Analysis-blue">
+  <img src="https://img.shields.io/badge/Magisk-Rooted-red">
+  <img src="https://img.shields.io/badge/Docker-Enabled-2496ED">
+  <img src="https://img.shields.io/badge/Linux-Debian%20%7C%20Kali-yellow">
+</p>
 
 ---
 
-# What is This?
+## About
 
-This project automates the setup of a complete Android security research environment for:
+A fully automated Android malware analysis & mobile security research lab.
 
-- Android Malware Analysis
+This setup installs:
+
+- Android Emulator
+- Android SDK
+- RootAVD
+- Magisk
+- Docker
+- MobSF
+
+Built for:
+
+- Malware Analysis
 - APK Reverse Engineering
 - Dynamic Runtime Analysis
-- Frida Instrumentation
 - SSL Pinning Bypass
+- Frida Instrumentation
 - Mobile App Pentesting
-- Traffic Interception
-- MobSF Dynamic Analysis
 
 ---
 
-# Included Components
+## Installation
 
-| Component | Purpose |
-|---|---|
-| Android SDK | Android development & debugging tools |
-| Android Emulator | Virtual Android Device |
-| Android 30 x86_64 | Fast emulator image |
-| RootAVD | Root patching framework |
-| Magisk | Systemless Android root |
-| Docker | Container runtime |
-| MobSF | Mobile Security Framework |
-
----
-
-# Features
-
-## Fully Automated Setup
-
-- Android SDK Installation
-- Emulator Installation
-- MobSF Docker Setup
-- RootAVD Integration
-- Magisk Root Setup
-- Environment Variable Configuration
-- AVD Creation
-- Dynamic Analysis Ready
-
----
-
-# Supported Operating Systems
-
-- Kali Linux
-- Debian
-- Ubuntu
-- Parrot OS
-
----
-
-# Hardware Requirements
-
-| Requirement | Recommended |
-|---|---|
-| RAM | 8GB+ |
-| CPU | 4 Cores |
-| Storage | 20GB Free |
-| Virtualization | Enabled |
-
----
-
-# Enable CPU Virtualization
-
-Check virtualization support:
-
-```bash
-egrep -c '(vmx|svm)' /proc/cpuinfo
-```
-
-If output is greater than `0`, virtualization is enabled.
-
----
-
-# One-Line Installation
+### One-Line Setup
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/mobsf-android-analysis-lab/main/install_android_env.sh)
@@ -90,92 +52,30 @@ bash <(curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/mobsf-android-
 
 ---
 
-# Manual Installation
+## What Gets Installed
 
-```bash
-git clone https://github.com/YOUR_USERNAME/mobsf-android-analysis-lab.git
-
-cd mobsf-android-analysis-lab
-
-chmod +x install_android_env.sh
-
-./install_android_env.sh
-```
+| Component | Purpose |
+|---|---|
+| Android SDK | Android tools |
+| Emulator | Virtual Android device |
+| RootAVD | Root patching |
+| Magisk | Systemless root |
+| Docker | Container runtime |
+| MobSF | Mobile Security Framework |
 
 ---
 
-# Created Emulator
+## Emulator Details
 
 | Property | Value |
 |---|---|
-| Emulator Name | MOBSF_DEV |
-| Android Version | Android 11 |
-| API Level | 30 |
+| Name | MOBSF_DEV |
+| Android | 11 |
+| API | 30 |
 | Architecture | x86_64 |
 | Device | Pixel 7 Pro |
 
 ---
-
-# IMPORTANT: Final Magisk Setup
-
-After RootAVD completes:
-
-## Steps
-
-1. Start emulator
-
-```bash
-emulator -avd MOBSF_DEV
-```
-
-2. Wait for Android boot
-
-3. Open Magisk App
-
-4. Wait a few seconds
-
-5. A popup will appear
-
-6. Click Reboot
-
-7. Emulator reboots automatically
-
-8. Verify root:
-
-```bash
-adb root
-```
-
----
-
-# Start MobSF
-
-```bash
-docker run -it --rm -p 8000:8000 \
-opensecurity/mobile-security-framework-mobsf:latest
-```
-
----
-
-# Open MobSF
-
-```text
-http://127.0.0.1:8000
-```
-
----
-
-# MobSF Dynamic Analysis Configuration
-
-Use:
-
-```python
-ANALYZER_IDENTIFIER = "emulator-5554"
-```
-
----
-
-# Useful Commands
 
 ## Start Emulator
 
@@ -183,55 +83,53 @@ ANALYZER_IDENTIFIER = "emulator-5554"
 emulator -avd MOBSF_DEV
 ```
 
-## List Devices
+---
 
-```bash
-adb devices
-```
+## Important Magisk Setup
 
-## Restart ADB as Root
+After emulator boots:
+
+1. Open **Magisk App**
+2. Wait few seconds
+3. Popup appears
+4. Click **Reboot**
+5. Verify root:
 
 ```bash
 adb root
 ```
 
-## Check Available AVDs
+---
+
+## Start MobSF
 
 ```bash
-emulator -list-avds
+docker run -it --rm -p 8000:8000 \
+opensecurity/mobile-security-framework-mobsf:latest
+```
+
+Open:
+
+```text
+http://127.0.0.1:8000
 ```
 
 ---
 
-# Recommended Tools
+## Dynamic Analysis Ready
 
-You can additionally install:
+Supports:
 
 - Frida
-- objection
-- apktool
-- jadx
-- mitmproxy
+- Objection
 - Burp Suite
+- mitmproxy
+- SSL Pinning Bypass
+- Runtime Hooking
 
 ---
 
-# Future Improvements
-
-Planned Features:
-
-- Frida Auto Installer
-- Burp CA Auto Install
-- SSL Pinning Bypass Automation
-- Emulator Snapshots
-- ARM Emulator Support
-- Docker Compose Setup
-- Genymotion Support
-- Play Integrity Bypass
-
----
-
-# Project Structure
+## Project Structure
 
 ```text
 mobsf-android-analysis-lab/
@@ -239,36 +137,27 @@ mobsf-android-analysis-lab/
 ├── install_android_env.sh
 ├── oneliner.sh
 ├── LICENSE
-└── .gitignore
+└── images/
+    └── banner.png
 ```
 
 ---
 
-# Credits
+## Credits
 
-## RootAVD
-
-https://github.com/newbit1/rootAVD
-
-## MobSF
-
-https://github.com/MobSF/Mobile-Security-Framework-MobSF
+- RootAVD
+- MobSF
+- Android Emulator
+- Magisk
 
 ---
 
-# Disclaimer
+## Disclaimer
 
-This project is intended strictly for:
-
-- Educational Purposes
-- Malware Analysis
-- Mobile Security Research
-- Authorized Security Testing
-
-The user is responsible for complying with local laws and regulations.
+For educational purposes, malware analysis, and authorized security research only.
 
 ---
 
-# License
-
-MIT License
+<p align="center">
+  Built for Android Security Researchers
+</p>
