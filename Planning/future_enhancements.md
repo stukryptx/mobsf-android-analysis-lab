@@ -24,3 +24,4 @@ This document outlines planned improvements to automate, harden, and expand the 
 ## ⚡ 3. Automated Batch APK Triage Pipeline
 - [ ] **Headless CLI Ingestion Daemon**:
   - Provide a watch folder daemon that automatically ingests suspicious APKs, initiates dynamic runs via MobSF REST API, records network traffic (.pcap), and exports JSON reports.
+
