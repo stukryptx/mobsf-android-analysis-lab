@@ -47,7 +47,7 @@ Built for:
 ### One-Line Setup
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/mobsf-android-analysis-lab/main/install_android_env.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/stukryptx/mobsf-android-analysis-lab/main/install_android_env.sh)
 ```
 
 ---

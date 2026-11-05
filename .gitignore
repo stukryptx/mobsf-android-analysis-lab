@@ -1,0 +1,24 @@
+# OS & Filesystem Artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Android SDK / Emulator caches & downloads
+*.apk
+*.apks
+*.xapk
+*.zip
+*.tar.gz
+sdk/
+cmdline-tools/
+emulator/
+system-images/
+avd/
+*.avd/
+
+# Temporary / Log files
+*.log
+*.tmp
+.cache/
+.vscode/
+.idea/
